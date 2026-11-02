@@ -10,7 +10,9 @@ const work = mkdtempSync(join(tmpdir(), 'bill-core-consumer-'));
 const options = { cwd: work, stdio: 'pipe', encoding: 'utf8', timeout: 60000 };
 try {
   const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
-  assert.equal(manifest.private, true, 'Publishing must remain blocked while private');
+  assert.notEqual(manifest.private, true, 'This early-access package must be publishable only after owner approval');
+  assert.equal(manifest.version, '0.2.2-beta.0', 'Unexpected prerelease version');
+  assert.equal(manifest.publishConfig?.tag, 'next', 'Do not publish prerelease to latest');
   assert.equal(Object.keys(manifest.dependencies || {}).length, 0, 'No runtime dependencies expected');
   const packed = JSON.parse(execFileSync('npm', ['pack', '--json', '--pack-destination', work], {
     ...options, cwd: root, env: { ...process.env, npm_config_audit: 'false', npm_config_fund: 'false' }

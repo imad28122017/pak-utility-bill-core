@@ -1,6 +1,6 @@
 # Claude for Open Source — evidence ledger (owner-maintained)
 
-**As of 2026-11-02:** the standalone MIT-licensed GitHub repository is **public**, with passing CI and Git history secret scan. GitHub release tag: not yet confirmed. npm publication: **not authorized**. Registry downloads: not applicable until publication; independent consumers/dependents and external merged-PR contributors: **no adoption evidence verified yet**. **Claude for OSS eligibility has not been established.**
+**As of 2026-11-02:** the standalone MIT-licensed GitHub repository is **public**, with passing CI and Git history secret scan. GitHub release tag: not yet confirmed. npm publication: **early-access staging authorized on 2026-11-02 but not yet verified**. Registry downloads: not applicable until publication; independent consumers/dependents and external merged-PR contributors: **no adoption evidence verified yet**. **Claude for OSS eligibility has not been established.**
 
 Anthropic's official terms: https://www.anthropic.com/claude-for-oss-terms
 

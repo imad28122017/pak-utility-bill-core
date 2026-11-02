@@ -1,8 +1,8 @@
-# Pakistan Utility Bill Core (v0.2.1 release candidate)
+# Pakistan Utility Bill Core (npm prerelease 0.2.2-beta.0)
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Public GitHub source as of 2026-11-02; not published on npm or qualified for any grant.** This independently written package does **not** expose the source or Git history of Pocki or Duewise. The repository owner approved public GitHub publication under MIT on 2026-11-02; an independent legal/privacy review has not been certified. npm publication remains blocked by `private: true`, and the npm name is not verified. There is no provider affiliation or endorsement.
+> **Public GitHub source; npm release pending.** Owner authorized an npm early-access release on 2026-11-02. This branch prepares **0.2.2-beta.0**, intended for the npm **`next`** dist-tag via an owner-authenticated staged first publication. It is **not available on npm until the owner approves the staged package with 2FA**. Pocki and Duewise remain private; no provider affiliation or endorsement is implied. No Claude for OSS eligibility is established.
 
 ## Motivation
 
@@ -27,6 +27,10 @@ npm run test:coverage
 npm run example
 npm run pack:check
 ```
+
+## Install from npm after staged release approval
+
+Once the owner approves a staged npm publication, developers can install the early-access package with `npm install pak-utility-bill-core@next`. Until then, clone the public GitHub repository to test from source. See [npm first-publication instructions](docs/NPM_FIRST_PUBLISH.md).
 
 ## Use after installing a published package
 
@@ -72,4 +76,4 @@ Other formats require adapters and testing. Unknown or conflicting values are re
 
 **Scope:** This package cannot verify whether a bill has actually been paid, cannot determine the official issuer of a PDF, must never bypass authentication/CAPTCHA, and never stores financial or billing data. All customer identifiers and invoices should remain inside the host app's private storage.
 
-**License:** MIT approved by the owner, with authorization to make this repository public. The npm package is not published and remains explicitly private in `package.json`.
+**License:** MIT, approved for public GitHub and early-access npm publication by the owner. npm staging and 2FA approval are still required; npm is not yet live.
