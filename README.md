@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified; npm publication is deliberately blocked by `private: true`. Ownership, licensing, publication permissions and independent secret-scan review are pending. No provider partnership or affiliation is implied.
+> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified; npm publication is deliberately blocked by `private: true`. The repository owner approved MIT licensing on 2026-11-02; third-party rights review, publication permission and independent specialist secret scanning are still pending. No provider partnership or affiliation is implied.
 
 ## Motivation
 
@@ -72,4 +72,4 @@ Other formats require adapters and testing. Unknown or conflicting values are re
 
 **Scope:** This package cannot verify whether a bill has actually been paid, cannot determine the official issuer of a PDF, must never bypass authentication/CAPTCHA, and never stores financial or billing data. All customer identifiers and invoices should remain inside the host app's private storage.
 
-**License:** MIT proposed, subject to owner/provenance approval before public publication.
+**License:** MIT approved by this repository's owner. Public release and third-party rights clearance are separate pending steps.

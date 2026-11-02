@@ -20,3 +20,5 @@ jobs:
       - run: npm run test:coverage
       - run: npm run example
       - run: npm run pack:check
+      - run: npm run verify:package
+      - run: npm run audit:secrets

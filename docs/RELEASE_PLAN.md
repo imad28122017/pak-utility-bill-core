@@ -1,6 +1,6 @@
 # Private-to-public launch plan
 
-1. Obtain code-publication/IP approval; verify no employer/client ownership restriction. MIT is proposed, not permission to release third-party IP.
+1. Obtain code-publication/IP approval; verify no employer/client ownership restriction. MIT was approved by the repository owner on 2026-11-02, but that does not authorize publishing or releasing third-party intellectual property.
 2. Validate repository's **new** Git history (do not fork the private parent projects), scan every tracked file for private references and secrets; inspect the diffs manually.
 3. Confirm parser behavior on synthetic samples only; run `npm test`, `npm run test:coverage`, `npm run example`, `npm run pack:check`, check Node 20 and Node 22.
 4. Create a separate **private** GitHub repository, e.g. `imad28122017/pak-utility-bill-core`, using a fresh first commit. Do not clone/fork Pocki or Duewise.
