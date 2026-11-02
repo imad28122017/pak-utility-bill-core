@@ -1,0 +1,73 @@
+# Pakistan Utility Bill Core (v0.2.1 release candidate)
+
+**Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
+
+> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified. Ownership, licensing, publication permissions and secret-scan review are pending. No provider partnership or affiliation is implied.
+
+## Motivation
+
+Utility bill collectors often import copied bill text, scanned-document text, or invoices received by email. Without validation, an unrelated account, stale month or conflicting amount can silently overwrite a previously valid record. This package checks **consistency** of provider label, account reference, bill period, amount and due date, then preserves the existing record when a check fails. It never authenticates an invoice's origin.
+
+## Features
+
+- Fully offline, ESM-only, no runtime dependencies or network calls
+- Conservative text parsing and missing/conflicting field detection
+- ISO local-calendar dates, PKR integer minor units (paisa), known-provider labels
+- Exact reference/provider checks, stale billing-period and due-date rejection
+- Immutable merge with previous history preserved, including recorded payment status
+- TypeScript declarations, synthetic fixtures, Node 20+/22 CI, package-consumer example
+
+## Run locally
+
+```bash
+npm test
+npm run test:coverage
+npm run example
+npm run pack:check
+```
+
+## Use after installing a published package
+
+```js
+import { parseBillText, mergeVerifiedBill } from 'pak-utility-bill-core';
+
+const text = `IESCO Electricity Bill
+Billing Month: October 2026
+Reference No: 99998888777766
+Amount Due: PKR 1,234.50
+Due Date: 05 Nov 2026`;
+const previous = { provider: 'iesco', reference: '99998888777766',
+  billingPeriod: '2026-09', dueDate: '2026-10-05', amountMinor: 45000, paid: false };
+const result = mergeVerifiedBill(previous, parseBillText(text), '2026-11-01');
+if (result.status === 'needs_review') {
+  // Show review UI. The result.bill is precisely the original 'previous' object.
+} else {
+  // The host must ALSO confirm the source of the document is trusted.
+}
+```
+
+For local development use `./src/index.mjs` instead of the package specifier. Test examples use **invented** reference numbers, not real accounts.
+
+## Supported input (text only)
+
+| Field | Example labels | Rules |
+| --- | --- | --- |
+| Provider label | IESCO, SNGPL, Nayatel, CDA Water | A matching text label is **not** proof of identity |
+| Reference | Reference No, Account Number, NTL No, Consumer Number | Required for auto-update; exact normalized match |
+| Amount | Amount Due, Total Payable, Within Due Date | Only unambiguous PKR numeric values; paisa integers |
+| Due date | Due Date, Last Date for Payment | Only valid dates; numeric input uses day-first convention |
+| Period | Billing Month, Bill Period | Must resolve to canonical YYYY-MM |
+
+Other formats require adapters and testing. Unknown or conflicting values are rejected. No live PITC/SNGPL/Nayatel/CDA endpoint is used. OCR, PDF extraction and trusted-origin validation are explicitly outside the library.
+
+## Maintainer and contribution documentation
+
+- [Security & reporting](SECURITY.md), [threat model](docs/THREAT_MODEL.md)
+- [Contributing](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md)
+- [Release checklist](docs/PRE_PUBLICATION_CHECKLIST.md), [maintainer sign-off](docs/MAINTAINER_SIGNOFF.md), [launch plan](docs/RELEASE_PLAN.md)
+- [Adoption plan](docs/ADOPTION_PLAN.md), [Anthropic program evidence ledger](docs/ELIGIBILITY_EVIDENCE.md)
+- [App integration guide](docs/INTEGRATION_GUIDE.md), [synthetic compatibility matrix](docs/COMPATIBILITY.md), [application template](docs/CLAUDE_APPLICATION_TEMPLATE.md)
+
+**Scope:** This package cannot verify whether a bill has actually been paid, cannot determine the official issuer of a PDF, must never bypass authentication/CAPTCHA, and never stores financial or billing data. All customer identifiers and invoices should remain inside the host app's private storage.
+
+**License:** MIT proposed, subject to owner/provenance approval before public publication.
