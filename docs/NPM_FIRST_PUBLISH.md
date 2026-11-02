@@ -14,7 +14,7 @@
 
 ## Critical first-publication limitation
 
-npm trusted publishing cannot be configured for a package that does not yet exist in the registry. First bootstrap the unclaimed package with your own authenticated npm account. **First publication cannot use `npm stage publish`.** npm's official staged-publishing requirements explicitly state the package must already exist. Bootstrap the first package with an ordinary authenticated `npm publish --tag next --access public`, which will publish the version immediately after authentication and 2FA. Review and approve the exact tarball *before* invoking this command. Use staged publishing only for subsequent versions.
+With a new npm package name, the initial authorized publisher must first establish ownership. This package was bootstrapped by its owner using a direct publish. **Correction (2026-11-02):** npm's current official staged-publishing documentation allows staging a new package, which creates an initial public `0.0.0-stage` placeholder until a maintainer approves the staged version with 2FA. This project's first version was already published directly via authenticated `npm publish --tag next --access public`; this historical record must not be mistaken for a rule that all initial packages require direct publishing. npm trusted publishing still requires a package-specific trust configuration and an appropriate OIDC workflow.
 
 Source: https://docs.npmjs.com/cli/v11/commands/npm-trust/ and https://docs.npmjs.com/staged-publishing/
 
@@ -46,7 +46,7 @@ Now that the initial package is live on npmjs.com and owned by the publisher:
    - Workflow filename: `npm-stage.yml`
    - Environment: leave blank unless you configure a matching GitHub Environment.
    - Allow stage publish. Prefer **stage only**, without direct publish.
-3. Save the trusted-publisher configuration. The first OIDC trust verification may need to occur within the provider's required validation window; prepare a separate **new version** before initiating a staged workflow. Do not try to republish immutable `0.2.2-beta.0`.
+3. **Completed November 2, 2026:** npm trusted publisher was saved and GitHub Actions staged `0.2.2-beta.1` using OIDC and signed provenance. Owner must confirm the Settings UI now says **Validated**. Do not rerun the stage job at the same immutable/staged version.
 4. After trusted publishing works, consider **Require 2FA and disallow tokens** in npm package settings.
 5. Future runs: GitHub Actions → **Stage npm prerelease (trusted publisher)** → **Run workflow** → type `STAGE`. This stage still requires manual npmjs.com approval with 2FA.
 
