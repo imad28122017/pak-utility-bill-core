@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified; npm publication is deliberately blocked by `private: true`. The repository owner approved MIT licensing on 2026-11-02; third-party rights review, publication permission and independent specialist secret scanning are still pending. No provider partnership or affiliation is implied.
+> **Pre-release library; not published on npm or qualified for any grant.** This independently written package does **not** expose the source or Git history of Pocki or Duewise. The repository owner approved public GitHub publication under MIT on 2026-11-02; an independent legal/privacy review has not been certified. npm publication remains blocked by `private: true`, and the npm name is not verified. There is no provider affiliation or endorsement.
 
 ## Motivation
 
@@ -66,10 +66,10 @@ Other formats require adapters and testing. Unknown or conflicting values are re
 
 - [Security & reporting](SECURITY.md), [threat model](docs/THREAT_MODEL.md)
 - [Contributing](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md)
-- [Release checklist](docs/PRE_PUBLICATION_CHECKLIST.md), [maintainer sign-off](docs/MAINTAINER_SIGNOFF.md), [launch plan](docs/RELEASE_PLAN.md)
+- [Public launch steps](docs/PUBLIC_LAUNCH.md), [release checklist](docs/PRE_PUBLICATION_CHECKLIST.md), [maintainer sign-off](docs/MAINTAINER_SIGNOFF.md), [launch plan](docs/RELEASE_PLAN.md)
 - [Adoption plan](docs/ADOPTION_PLAN.md), [Anthropic program evidence ledger](docs/ELIGIBILITY_EVIDENCE.md)
 - [App integration guide](docs/INTEGRATION_GUIDE.md), [synthetic compatibility matrix](docs/COMPATIBILITY.md), [application template](docs/CLAUDE_APPLICATION_TEMPLATE.md)
 
 **Scope:** This package cannot verify whether a bill has actually been paid, cannot determine the official issuer of a PDF, must never bypass authentication/CAPTCHA, and never stores financial or billing data. All customer identifiers and invoices should remain inside the host app's private storage.
 
-**License:** MIT approved by this repository's owner. Public release and third-party rights clearance are separate pending steps.
+**License:** MIT approved by the owner, with authorization to make this repository public. The npm package is not published and remains explicitly private in `package.json`.
