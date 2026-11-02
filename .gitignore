@@ -1,0 +1,16 @@
+node_modules/
+coverage/
+dist/
+*.tgz
+.env
+.env.*
+!.env.example
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.log
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,48 @@
+{
+  "name": "pak-utility-bill-core",
+  "version": "0.2.1",
+  "description": "Offline utility bill text parser and verified import primitives for Pakistani bills",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.mts",
+      "import": "./src/index.mjs"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "example": "node examples/example.mjs",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "pack:check": "npm pack --dry-run --json"
+  },
+  "keywords": [
+    "utility-bills",
+    "pakistan",
+    "offline",
+    "bill-parser",
+    "validation",
+    "privacy",
+    "esm",
+    "typescript"
+  ],
+  "license": "MIT",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "types": "./src/index.d.mts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imad28122017/pak-utility-bill-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imad28122017/pak-utility-bill-core/issues"
+  },
+  "homepage": "https://github.com/imad28122017/pak-utility-bill-core#readme"
+}

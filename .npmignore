@@ -1,0 +1,7 @@
+test/
+tests/
+examples/
+docs/
+.github/
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
