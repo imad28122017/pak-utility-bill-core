@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Public GitHub source; npm release pending.** Owner authorized an npm early-access release on 2026-11-02. This branch prepares **0.2.2-beta.0**, intended for the npm **`next`** dist-tag via an owner-authenticated staged first publication. It is **not available on npm until the owner approves the staged package with 2FA**. Pocki and Duewise remain private; no provider affiliation or endorsement is implied. No Claude for OSS eligibility is established.
+> **Public GitHub source; npm release pending.** Owner authorized an npm early-access release on 2026-11-02. This branch prepares **0.2.2-beta.0**, intended for the npm **`next`** dist-tag via an owner-authenticated direct first publication (npm does not allow staging a brand-new package). It is **not available on npm until the owner performs the authenticated first publish with 2FA**. Pocki and Duewise remain private; no provider affiliation or endorsement is implied. No Claude for OSS eligibility is established.
 
 ## Motivation
 

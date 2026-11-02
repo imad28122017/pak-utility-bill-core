@@ -12,7 +12,7 @@
 
 ## Critical first-publication limitation
 
-npm trusted publishing cannot be configured for a package that does not yet exist in the registry. First bootstrap the unclaimed package with your own authenticated npm account. Prefer `npm stage publish` so the version becomes public only after your manual 2FA approval. A staged *new* package may create a public placeholder name; its version content remains inaccessible until approved.
+npm trusted publishing cannot be configured for a package that does not yet exist in the registry. First bootstrap the unclaimed package with your own authenticated npm account. **First publication cannot use `npm stage publish`.** npm's official staged-publishing requirements explicitly state the package must already exist. Bootstrap the first package with an ordinary authenticated `npm publish --tag next --access public`, which will publish the version immediately after authentication and 2FA. Review and approve the exact tarball *before* invoking this command. Use staged publishing only for subsequent versions.
 
 Source: https://docs.npmjs.com/cli/v11/commands/npm-trust/ and https://docs.npmjs.com/staged-publishing/
 
@@ -27,15 +27,15 @@ Prerequisites: npmjs.com account; account 2FA enabled; Node.js >=22.14; npm >=11
 5. Ensure `git branch --show-current` is `main` and `git status --short` is empty. Run `git pull --ff-only`.
 6. Verify `npm pkg get name version publishConfig private` reports `pak-utility-bill-core`, `0.2.2-beta.0`, `next`, and no `private: true`.
 7. Run `npm run release:check`, then `npm pack --dry-run --json` and review the allowed packaged file paths; do not proceed if any unexpected document, key, account reference or artwork is present.
-8. Check `npm view pak-utility-bill-core name version --json`. A 404/404 error is expected for an unclaimed name; if any existing third-party package is found, **stop** and choose a new name.
-9. Stage the first publication from the repository root: `npm stage publish --tag next --access public`. This should not immediately publish the version to the live registry. If this command is unavailable, stop and verify your npm CLI version rather than using an unreviewed fallback.
-10. On npmjs.com open **Staged Packages**, inspect the staged package/version and approve it with **2FA**. The owner must perform this identity check personally. Verify after approval: `npm view pak-utility-bill-core@next version` returns `0.2.2-beta.0`.
+8. Check `npm view pak-utility-bill-core name version --json`. A 404 error is expected for an unclaimed name; if any existing third-party package is found, **stop** and choose a new name.
+9. **This is the live publication action:** after all checks and manual review, run `npm publish --tag next --access public` from the repository root and complete any prompted browser/2FA authorization. This makes the initial version publicly installable; it is **not** a staging operation. Do not run this until you personally intend the package to go live.
+10. Verify after publication: `npm view pak-utility-bill-core@next version` returns `0.2.2-beta.0`, and check the package page on npmjs.com. If the registry rejects the name, stop rather than using a different name without inspecting it.
 
 The package is considered distributed only after the registry confirms the version is live.
 
 ## Future release automation (configure after first npm publish)
 
-Once the package exists on npmjs.com and you own it:
+Once the initial package is live on npmjs.com and you own it:
 
 1. Open **Packages → pak-utility-bill-core → Settings → Trusted publishing**.
 2. Select **GitHub Actions**; set:
