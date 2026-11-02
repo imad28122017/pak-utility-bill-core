@@ -1,10 +1,10 @@
 # Public GitHub launch and verification (November 2, 2026)
 
-**Verified:** `imad28122017/pak-utility-bill-core` is public as of 2026-11-02. Main commit `6a87112` passed Tests and package audit (Node 20 and 22) and full-history Gitleaks scan. **The repository is public, but npm publication is NOT authorized or completed.**
+**Verified:** `imad28122017/pak-utility-bill-core` is public as of 2026-11-02. Main commit `6a87112` passed Tests and package audit (Node 20 and 22) and full-history Gitleaks scan. **Both GitHub source and npm beta package are public as of 2026-11-02.**
 
 ## Scope and consent
 
-The repository owner explicitly approved making **only** `imad28122017/pak-utility-bill-core` public under MIT, and affirmed no employer/client ownership restrictions. This approval does **not** cover Pocki or Duewise and does **not** authorize npm publication. The npm package remains `"private": true`.
+The repository owner explicitly approved making **only** `imad28122017/pak-utility-bill-core` public under MIT, and affirmed no employer/client ownership restrictions. This approval does **not** cover Pocki or Duewise. The owner separately approved and completed the first npm beta release on 2026-11-02.
 
 ## Completed technical evidence
 
@@ -33,7 +33,7 @@ Note: GitHub may make all prior workflow history/logs visible after the visibili
 ## After the public launch
 
 - Prepare a **GitHub-only source pre-release**, tag `v0.2.1`, using [proposed release notes](GITHUB_RELEASE_NOTES_v0.2.1.md). Select the tested `main` commit when publishing. Tagging a source release does **not** publish to npm.
-- Keep `"private": true` until separate owner authorization to publish to npm.
+- **Completed:** npm `0.2.2-beta.0` was published with owner authentication and 2FA. Future releases must use a new version; prefer trusted publishing and a staged approval workflow.
 - Update the eligibility evidence ledger with **verified** public metrics; do not claim Claude for OSS qualification simply from going public.
 - Seek genuine adopter feedback, independent integrations, responsible security reports and contributions.
 
