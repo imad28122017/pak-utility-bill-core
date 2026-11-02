@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified. Ownership, licensing, publication permissions and secret-scan review are pending. No provider partnership or affiliation is implied.
+> **Not yet publicly published or qualified for any grant.** This is a newly written release candidate staged for review at a private repository; it is **not** the source/history of Pocki or Duewise. The npm name is unverified; npm publication is deliberately blocked by `private: true`. Ownership, licensing, publication permissions and independent secret-scan review are pending. No provider partnership or affiliation is implied.
 
 ## Motivation
 
@@ -58,7 +58,7 @@ For local development use `./src/index.mjs` instead of the package specifier. Te
 | Due date | Due Date, Last Date for Payment | Only valid dates; numeric input uses day-first convention |
 | Period | Billing Month, Bill Period | Must resolve to canonical YYYY-MM |
 
-Other formats require adapters and testing. Unknown or conflicting values are rejected. No live PITC/SNGPL/Nayatel/CDA endpoint is used. OCR, PDF extraction and trusted-origin validation are explicitly outside the library.
+Other formats require adapters and testing. Unknown or conflicting values are rejected. Error messages from caller-supplied parsed objects are never echoed verbatim; they may contain sensitive data. No live PITC/SNGPL/Nayatel/CDA endpoint is used. OCR, PDF extraction and trusted-origin validation are explicitly outside the library.
 
 ## Maintainer and contribution documentation
 

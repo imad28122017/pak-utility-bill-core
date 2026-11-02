@@ -1,6 +1,6 @@
 # Owner review required before public release
 
-Private staging is not public authorization. The maintainer must personally confirm:
+Private staging is not public authorization. The npm package is currently marked `private: true` to prevent accidental publishing. The maintainer must personally confirm:
 
 - [ ] I am authorized to open-source **this independent code**, with no unlicensed employer, client, or third-party IP.
 - [ ] I approve the MIT license attribution (`Copyright (c) 2026 The contributors`).

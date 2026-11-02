@@ -4,6 +4,6 @@ Never include actual utility bills, personal names, billing identifiers, account
 
 The library makes no network requests and does not verify whether a document came from a utility provider. Applications MUST obtain user consent before importing data or sending it elsewhere. Display parsed fields for review and use verified sources where available; never bypass CAPTCHA, authentication, rate limits or provider restrictions.
 
-Security reports: **maintainer must configure a private disclosure channel before publication**. Do not post sensitive exploit reports as public GitHub issues. Consider enabling GitHub private vulnerability reporting.
+Security reports: **maintainer must configure a private disclosure channel before publication**. Do not post sensitive exploit reports as public GitHub issues. Before public launch, enable GitHub **Private vulnerability reporting** in this repository under **Settings → Security → Code security and analysis** (GitHub may change menu labels), or configure another private channel explicitly approved by the maintainer. Update this policy to include the actual contact method once configured.
 
 Before each release, scan the exact release directory and new Git history for secrets and identify copyright/license obligations. Do not fork or mirror the original private app repos to release this package.

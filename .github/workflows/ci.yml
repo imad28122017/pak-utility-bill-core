@@ -17,5 +17,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm test
+      - run: npm run test:coverage
       - run: npm run example
       - run: npm run pack:check
