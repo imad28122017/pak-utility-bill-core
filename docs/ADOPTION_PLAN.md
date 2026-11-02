@@ -4,6 +4,14 @@
 
 Potential users: maintainers of budget apps, offline invoice managers, Pakistani civic-tech apps, document-validation tools and educational projects. The main benefit is a **small offline verified-import primitive** separate from scraping and payment gateways.
 
+## Public beta and first-user evaluation (November 2026)
+
+**Current registry:** `npm install pak-utility-bill-core@next` installs the publicly released beta.1. The tag `latest` still points to beta.0. The package has signed npm provenance, 42 tests, and no runtime dependencies, but **real-world adoption and provider-specific compatibility are not yet established**.
+
+Invite a small number of genuinely independent developers maintaining Pakistan-oriented budgeting, civic-tech or document-processing applications to try one **fictional** test case each. Ask them whether the parsing/validation API is useful, which labels/inputs fail, and what integration friction exists. Be explicit that this is **text parsing, not provider retrieval or document authenticity verification**. Never ask for customer bills or actual account details.
+
+Provide a concise public reproduction issue with synthetic example input, expected output, actual output, Node version and package version. Log independently verified consumers and public integration URLs in the evidence ledger only with permission. Do not artificially generate installs, stars, forks, downloads, contributors or dependents.
+
 ## Responsible outreach
 
 - Publish clear technical documentation and a tiny browser/Node example; don't announce production-readiness prematurely.

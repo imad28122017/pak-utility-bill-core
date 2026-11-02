@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Public npm early-access package published November 2, 2026.** Version **0.2.2-beta.0** is available from the registry and matches Git commit `1c65b6e` (SHA-1 tarball `b3bcc77a1f7c49a4633f9138b378afb7201460ec`). It is **not yet a stable production release** and has no verified external adoption. No provider affiliation is implied. Pocki and Duewise remain private. Publishing this package does not establish Claude for OSS eligibility.
+> **Public npm early-access package.** As of November 2, 2026, the newest published version is **0.2.2-beta.1**, released from Git commit `b5c2e4c` through npm trusted publishing with signed provenance. The **`next`** tag resolves to beta.1 while **`latest`** still resolves to beta.0; neither is declared production stable. No independent adoption has been verified. Pocki and Duewise remain private; no provider affiliation is implied. Publication does not establish Claude for OSS eligibility.
 
 ## Motivation
 
@@ -36,7 +36,7 @@ npm install pak-utility-bill-core@next
 
 Release note: source version `0.2.2-beta.1` is prepared to validate GitHub Actions trusted publishing; it is not publicly released until staged content is approved on npmjs.com. The previous `0.2.2-beta.0` release remains installable.
 
-This is a beta API; check the [npm package](https://www.npmjs.com/package/pak-utility-bill-core) for the version. As of the first publication on 2026-11-02, **both `next` and `latest` resolve to the beta** according to npm's registry; specifying `@next` or an exact version is recommended until a stable release exists. See [npm publishing and trust setup](docs/NPM_FIRST_PUBLISH.md).
+This is a beta API. As verified November 2, 2026, **`@next` = `0.2.2-beta.1`** and **`@latest` = `0.2.2-beta.0`**. Use `@next` or an exact version for evaluation until a stable release is available. The beta.1 package has [npm provenance attestation](https://registry.npmjs.org/-/npm/v1/attestations/pak-utility-bill-core@0.2.2-beta.1) from GitHub Actions. See [npm publishing and trust setup](docs/NPM_FIRST_PUBLISH.md).
 
 ## Use after installing a published package
 
