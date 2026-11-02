@@ -17,7 +17,9 @@
     "test": "node --test",
     "example": "node examples/example.mjs",
     "test:coverage": "node --test --experimental-test-coverage",
-    "pack:check": "npm pack --dry-run --json"
+    "pack:check": "npm pack --dry-run --json",
+    "verify:package": "node scripts/verify-package.mjs",
+    "audit:secrets": "node scripts/audit-publication.mjs"
   },
   "keywords": [
     "utility-bills",
