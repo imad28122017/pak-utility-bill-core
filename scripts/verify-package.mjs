@@ -1,7 +1,7 @@
 // Verify the actual npm tarball from a fresh, offline consumer, without publishing.
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync, readdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, rmSync, readdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -9,7 +9,7 @@ const root = new URL('../', import.meta.url);
 const work = mkdtempSync(join(tmpdir(), 'bill-core-consumer-'));
 const options = { cwd: work, stdio: 'pipe', encoding: 'utf8', timeout: 60000 };
 try {
-  const manifest = JSON.parse(execFileSync('npm', ['pkg', 'get', 'private', 'dependencies', '--json'], { ...options, cwd: root }));
+  const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
   assert.equal(manifest.private, true, 'Publishing must remain blocked while private');
   assert.equal(Object.keys(manifest.dependencies || {}).length, 0, 'No runtime dependencies expected');
   const packed = JSON.parse(execFileSync('npm', ['pack', '--json', '--pack-destination', work], {
