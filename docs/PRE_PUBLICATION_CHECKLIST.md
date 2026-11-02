@@ -12,13 +12,15 @@
 - [ ] Independent human review of tracked content and all reachable Git history before public release. Don't initialize the new public repo from a clone/fork of the old private repos.
 - [ ] Put `node_modules`, `.env*`, output artifacts, and local test documents in `.gitignore`; allowlist only `/server/.env.example` if intentionally needed (not in this package).
 - [x] Owner enabled dependency graph, automatic dependency submission, Dependabot alerts, malware alerts and Dependabot security updates (2026-11-02).
-- [ ] Configure available code/secret scanning and confirm private vulnerability reporting once repository is deliberately made public.
+- [x] The owner confirmed **Private vulnerability reporting enabled** in GitHub's Advanced Security settings on 2026-11-02; `SECURITY.md` now identifies the confidential reporting channel.
+- [ ] Independently review whether additional GitHub code/secret-scanning protections are available, and configure those appropriate for this public repository.
 - [x] GitHub Actions test/example/pack CI passed on Node 20 and 22 for v0.2.1 initial staging (2026-11-02); verify again for any updated commit.
 - [x] Fresh offline npm package-consumer import passed on Node 20 and Node 22 in GitHub Actions at commit `991060a`.
 - [ ] Recheck final release artifact before any future npm publication (not authorized).
 - [ ] Verify the package name is available before npm publication and explicitly review the npm tarball with `npm pack --dry-run`.
 - [x] Owner explicitly authorized public visibility for **this repository only** on 2026-11-02.
-- [ ] Verify the intended GitHub repository visibility actually changed; review the publicly visible README, Actions logs and history.
+- [x] Verified GitHub repository visibility as **public** and both CI/security workflows passing at `c771f3a` on 2026-11-02.
+- [ ] Human owner reviews the publicly visible README, Actions logs and history; automated scans alone are not an independent legal/privacy certification.
 - [ ] Obtain separate owner authorization before changing package `private: true` or running `npm publish`.
 - [ ] If any genuine credentials were **ever** committed, revoke/rotate them first; do not rely on deleting or rewriting history to make credentials safe.
 - [ ] Avoid claims of affiliations or endorsements from utility providers; no automatic provider lookups are included.
