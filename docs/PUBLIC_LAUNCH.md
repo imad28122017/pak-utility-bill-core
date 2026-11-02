@@ -1,4 +1,6 @@
-# GitHub public-launch steps (owner approval recorded 2026-11-02)
+# Public GitHub launch and verification (November 2, 2026)
+
+**Verified:** `imad28122017/pak-utility-bill-core` is public as of 2026-11-02. Main commit `6a87112` passed Tests and package audit (Node 20 and 22) and full-history Gitleaks scan. **The repository is public, but npm publication is NOT authorized or completed.**
 
 ## Scope and consent
 
@@ -17,20 +19,20 @@ The repository owner explicitly approved making **only** `imad28122017/pak-utili
 - [ ] Maintainer reviews any external trademarks, licenses and documentation; the owner has attested there are no employer/client restrictions.
 - [ ] Confirm this is `imad28122017/pak-utility-bill-core`, **not** the private app repositories.
 
-## Make this repository public
+## GitHub visibility steps (completed by owner 2026-11-02)
 
 1. Visit https://github.com/imad28122017/pak-utility-bill-core
 2. Choose **Settings** → **General**, then scroll to **Danger Zone**.
 3. Under **Change repository visibility**, click **Change visibility**, select **Public**, and confirm GitHub's warnings.
 4. Verify the repository shows **Public**, ideally in a signed-out browser.
-5. Under **Settings** → **Security and quality** → **Advanced Security**, enable **Private vulnerability reporting**. Confirm the **Report a vulnerability** option appears in **Security and quality**.
+5. **Next owner action:** Under **Settings** → **Security and quality** → **Advanced Security**, enable **Private vulnerability reporting**. Confirm the **Report a vulnerability** control appears. Reporting enablement is not verified yet.
 6. Confirm GitHub Actions history and source are appropriate for public viewing. Do not include real customer data in issue reports or fixtures.
 
 Note: GitHub may make all prior workflow history/logs visible after the visibility change. Visibility can only be changed by a GitHub user or an authorized browser session with repository administration access.
 
 ## After the public launch
 
-- Open a factual initial GitHub Release tagged `v0.2.1` only once exact-source CI checks are green; distinguish this source release from an npm release.
+- Prepare a **GitHub-only source pre-release**, tag `v0.2.1`, using [proposed release notes](GITHUB_RELEASE_NOTES_v0.2.1.md). Select the tested `main` commit when publishing. Tagging a source release does **not** publish to npm.
 - Keep `"private": true` until separate owner authorization to publish to npm.
 - Update the eligibility evidence ledger with **verified** public metrics; do not claim Claude for OSS qualification simply from going public.
 - Seek genuine adopter feedback, independent integrations, responsible security reports and contributions.

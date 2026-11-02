@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Pre-release library; not published on npm or qualified for any grant.** This independently written package does **not** expose the source or Git history of Pocki or Duewise. The repository owner approved public GitHub publication under MIT on 2026-11-02; an independent legal/privacy review has not been certified. npm publication remains blocked by `private: true`, and the npm name is not verified. There is no provider affiliation or endorsement.
+> **Public GitHub source as of 2026-11-02; not published on npm or qualified for any grant.** This independently written package does **not** expose the source or Git history of Pocki or Duewise. The repository owner approved public GitHub publication under MIT on 2026-11-02; an independent legal/privacy review has not been certified. npm publication remains blocked by `private: true`, and the npm name is not verified. There is no provider affiliation or endorsement.
 
 ## Motivation
 
