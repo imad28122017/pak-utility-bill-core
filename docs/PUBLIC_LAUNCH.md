@@ -25,7 +25,7 @@ The repository owner explicitly approved making **only** `imad28122017/pak-utili
 2. Choose **Settings** → **General**, then scroll to **Danger Zone**.
 3. Under **Change repository visibility**, click **Change visibility**, select **Public**, and confirm GitHub's warnings.
 4. Verify the repository shows **Public**, ideally in a signed-out browser.
-5. **Next owner action:** Under **Settings** → **Security and quality** → **Advanced Security**, enable **Private vulnerability reporting**. Confirm the **Report a vulnerability** control appears. Reporting enablement is not verified yet.
+5. **Completed 2026-11-02:** The owner enabled **Private vulnerability reporting** and confirmed the **Disable** control on GitHub's Settings → Security and quality → Advanced Security screen, indicating the feature is enabled.
 6. Confirm GitHub Actions history and source are appropriate for public viewing. Do not include real customer data in issue reports or fixtures.
 
 Note: GitHub may make all prior workflow history/logs visible after the visibility change. Visibility can only be changed by a GitHub user or an authorized browser session with repository administration access.
