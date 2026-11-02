@@ -2,7 +2,7 @@
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
-> **Public GitHub source; npm release pending.** Owner authorized an npm early-access release on 2026-11-02. This branch prepares **0.2.2-beta.0**, intended for the npm **`next`** dist-tag via an owner-authenticated direct first publication (npm does not allow staging a brand-new package). It is **not available on npm until the owner performs the authenticated first publish with 2FA**. Pocki and Duewise remain private; no provider affiliation or endorsement is implied. No Claude for OSS eligibility is established.
+> **Public npm early-access package published November 2, 2026.** Version **0.2.2-beta.0** is available from the registry and matches Git commit `1c65b6e` (SHA-1 tarball `b3bcc77a1f7c49a4633f9138b378afb7201460ec`). It is **not yet a stable production release** and has no verified external adoption. No provider affiliation is implied. Pocki and Duewise remain private. Publishing this package does not establish Claude for OSS eligibility.
 
 ## Motivation
 
@@ -28,9 +28,13 @@ npm run example
 npm run pack:check
 ```
 
-## Install from npm after staged release approval
+## Install from npm (early access)
 
-Once the owner approves a staged npm publication, developers can install the early-access package with `npm install pak-utility-bill-core@next`. Until then, clone the public GitHub repository to test from source. See [npm first-publication instructions](docs/NPM_FIRST_PUBLISH.md).
+```bash
+npm install pak-utility-bill-core@next
+```
+
+This is a beta API; check the [npm package](https://www.npmjs.com/package/pak-utility-bill-core) for the version. As of the first publication on 2026-11-02, **both `next` and `latest` resolve to the beta** according to npm's registry; specifying `@next` or an exact version is recommended until a stable release exists. See [npm publishing and trust setup](docs/NPM_FIRST_PUBLISH.md).
 
 ## Use after installing a published package
 
@@ -76,4 +80,4 @@ Other formats require adapters and testing. Unknown or conflicting values are re
 
 **Scope:** This package cannot verify whether a bill has actually been paid, cannot determine the official issuer of a PDF, must never bypass authentication/CAPTCHA, and never stores financial or billing data. All customer identifiers and invoices should remain inside the host app's private storage.
 
-**License:** MIT, approved for public GitHub and early-access npm publication by the owner. npm staging and 2FA approval are still required; npm is not yet live.
+**License:** MIT. GitHub source and the initial npm early-access version are both public. Future npm versions should use a trusted publisher with reviewed, manually approved staged publication.

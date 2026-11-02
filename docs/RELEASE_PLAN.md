@@ -6,7 +6,7 @@
 4. Create a separate **private** GitHub repository, e.g. `imad28122017/pak-utility-bill-core`, using a fresh first commit. Do not clone/fork Pocki or Duewise.
 5. Configure GitHub secret push protection, Dependabot, branch protection, CI, security policy, issue templates; replace placeholder disclosure instructions with a maintainer contact.
 6. Owner authorized public visibility on 2026-11-02. Complete manual review, then change **only this repository** to public in GitHub Settings → General → Danger Zone → Change repository visibility; immediately configure private vulnerability reporting. Verify externally. Do not expose Pocki or Duewise.
-7. Confirm npm package name availability through npm (search results are not sufficient). Check `npm pack --dry-run`; publish only on owner's explicit consent, with npm account 2FA and provenance where feasible.
+7. **Completed 2026-11-02:** the owner approved the first npm early-access release, reviewed the 11-file tarball and published `pak-utility-bill-core@0.2.2-beta.0` with 2FA. A future version should be published through trusted publishing with provenance where feasible.
 8. Announce the project factually to relevant JS, fintech and civic-tech developers, invite *genuine* adopter feedback, gather permission-based usage evidence.
 9. Update `docs/ELIGIBILITY_EVIDENCE.md` regularly; apply on discretionary impact track only when independent real-world adoption is demonstrated, or when another exact track is met.
 

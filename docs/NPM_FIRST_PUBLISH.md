@@ -1,11 +1,13 @@
-# npm first-publication plan — 0.2.2-beta.0
+# npm publication record and future trusted-publishing setup — 0.2.2-beta.0
+
+**Verified 2026-11-02:** the owner successfully published `pak-utility-bill-core@0.2.2-beta.0` to the public npm registry via the authenticated CLI. Git source commit: `1c65b6e0a78186a8f74959cc2a9cf21ad9490d20`. Registry tarball SHA-1: `b3bcc77a1f7c49a4633f9138b378afb7201460ec`; expected 11 files. This document retains first-release bootstrap steps for future reference, but do not repeat them on the existing version. **npm package versions are immutable.**
 
 **Owner approved npm early-access publication on 2026-11-02.** The package is not published merely because the repository is public. The original v0.2.1 GitHub source pre-release remains unchanged.
 
 ## Name and safeguards
 - Name requested: `pak-utility-bill-core` (unscoped public npm package).
-- Exact npm registry and package page returned 404 on 2026-11-02. This suggests the name was unclaimed at that instant, but does not reserve it or guarantee it remains available.
-- Release version `0.2.2-beta.0`, published only with dist-tag `next` so `npm install pak-utility-bill-core` without a tag does not point at a prerelease.
+- Package name is now registered and owned by the publishing npm account; the version `0.2.2-beta.0` is publicly available.
+- The initial release was published using `--tag next`. The registry nevertheless currently has **both `next` and `latest` set to `0.2.2-beta.0`**. Consequently, an unqualified install gets the beta. Decide explicitly how to handle `latest` as the project matures; avoid advertising beta as production-ready.
 - MIT. Zero runtime dependencies. Public repository matches `package.json`.
 - `npm run release:check` and `npm pack --dry-run --json` must pass on the exact release commit.
 - **Never paste passwords, recovery codes, 2FA codes, or npm tokens into GitHub issues, Actions secrets, or ChatGPT.**
@@ -16,7 +18,7 @@ npm trusted publishing cannot be configured for a package that does not yet exis
 
 Source: https://docs.npmjs.com/cli/v11/commands/npm-trust/ and https://docs.npmjs.com/staged-publishing/
 
-## Initial bootstrap (owner's Mac)
+## Initial bootstrap (historical steps — completed 2026-11-02)
 
 Prerequisites: npmjs.com account; account 2FA enabled; Node.js >=22.14; npm >=11.15; git installed. The authenticated npm username is independent of the GitHub username.
 
@@ -35,7 +37,7 @@ The package is considered distributed only after the registry confirms the versi
 
 ## Future release automation (configure after first npm publish)
 
-Once the initial package is live on npmjs.com and you own it:
+Now that the initial package is live on npmjs.com and owned by the publisher:
 
 1. Open **Packages → pak-utility-bill-core → Settings → Trusted publishing**.
 2. Select **GitHub Actions**; set:
@@ -44,7 +46,7 @@ Once the initial package is live on npmjs.com and you own it:
    - Workflow filename: `npm-stage.yml`
    - Environment: leave blank unless you configure a matching GitHub Environment.
    - Allow stage publish. Prefer **stage only**, without direct publish.
-3. Save; initiate a test staged publication of a **new version within 2 days**, or the unvalidated trust configuration may expire.
+3. Save the trusted-publisher configuration. The first OIDC trust verification may need to occur within the provider's required validation window; prepare a separate **new version** before initiating a staged workflow. Do not try to republish immutable `0.2.2-beta.0`.
 4. After trusted publishing works, consider **Require 2FA and disallow tokens** in npm package settings.
 5. Future runs: GitHub Actions → **Stage npm prerelease (trusted publisher)** → **Run workflow** → type `STAGE`. This stage still requires manual npmjs.com approval with 2FA.
 
@@ -52,7 +54,7 @@ References: https://docs.npmjs.com/trusted-publishers/ and https://docs.npmjs.co
 
 ## After successful distribution
 
-- Verify the actual npm page, version, tarball, and `next` tag. Note a first-time manual publish **does not establish GitHub OIDC provenance** by itself; future trusted publishes can provide it.
+- **Completed:** verified actual npm page, version, tarball and `next` tag. The first manual publication does not establish GitHub OIDC provenance; future trusted publishes may provide it.
 - Create an aligned **v0.2.2-beta.0 GitHub source pre-release tag** for the exact published source commit, if not yet tagged.
 - Update README, release plan and eligibility ledger to reflect **verified** distribution; never invent download, dependents or contributor counts.
 - Public launch is not equivalent to Claude for OSS eligibility; seek independent adoption and credible outside contributions.
