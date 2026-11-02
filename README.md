@@ -6,6 +6,8 @@
 
 ## Motivation
 
+This project grew out of a simple personal experience: missing a utility-bill due date. Its longer-term goal is to make recurring bill tracking less error-prone through one-time setup, accurate monthly updates, and timely reminders. Those automatic retrieval and reminder features belong to host applications; **this core library currently only parses and validates supplied bill text and performs conservative billing-cycle updates**. It does not contact providers or schedule notifications.
+
 Utility bill collectors often import copied bill text, scanned-document text, or invoices received by email. Without validation, an unrelated account, stale month or conflicting amount can silently overwrite a previously valid record. This package checks **consistency** of provider label, account reference, bill period, amount and due date, then preserves the existing record when a check fails. It never authenticates an invoice's origin.
 
 ## Features
