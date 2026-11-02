@@ -1,13 +1,13 @@
 # npm publication record and future trusted-publishing setup — 0.2.2-beta.0
 
-**Verified 2026-11-02:** the owner successfully published `pak-utility-bill-core@0.2.2-beta.0` to the public npm registry via the authenticated CLI. Git source commit: `1c65b6e0a78186a8f74959cc2a9cf21ad9490d20`. Registry tarball SHA-1: `b3bcc77a1f7c49a4633f9138b378afb7201460ec`; expected 11 files. This document retains first-release bootstrap steps for future reference, but do not repeat them on the existing version. **npm package versions are immutable.**
+**Verified 2026-11-02:** the owner successfully published `pak-utility-bill-core@0.2.2-beta.0` to the public npm registry via authenticated CLI, and subsequently approved **`0.2.2-beta.1`** staged with GitHub OIDC. beta.0 source commit: `1c65b6e0a78186a8f74959cc2a9cf21ad9490d20`; beta.0 tarball SHA-1: `b3bcc77a1f7c49a4633f9138b378afb7201460ec`. beta.1 source commit: `b5c2e4c2ef88043e81ba8cc43f41e91b76feb870`; tarball SHA-1: `ebe64013f6834178df7f77ae413be4ba1a8e5de1`. Both contain 11 expected files. This document retains first-release bootstrap steps for future reference, but do not repeat them on the existing version. **npm package versions are immutable.**
 
 **Owner approved npm early-access publication on 2026-11-02.** The package is not published merely because the repository is public. The original v0.2.1 GitHub source pre-release remains unchanged.
 
 ## Name and safeguards
 - Name requested: `pak-utility-bill-core` (unscoped public npm package).
 - Package name is now registered and owned by the publishing npm account; the version `0.2.2-beta.0` is publicly available.
-- The initial release was published using `--tag next`. The registry nevertheless currently has **both `next` and `latest` set to `0.2.2-beta.0`**. Consequently, an unqualified install gets the beta. Decide explicitly how to handle `latest` as the project matures; avoid advertising beta as production-ready.
+- As verified after the staged beta.1 approval on 2026-11-02, npm tags are **`next=0.2.2-beta.1` and `latest=0.2.2-beta.0`**. Both are beta releases; reserve a stable claim for actual production-ready validation.
 - MIT. Zero runtime dependencies. Public repository matches `package.json`.
 - `npm run release:check` and `npm pack --dry-run --json` must pass on the exact release commit.
 - **Never paste passwords, recovery codes, 2FA codes, or npm tokens into GitHub issues, Actions secrets, or ChatGPT.**
@@ -46,7 +46,7 @@ Now that the initial package is live on npmjs.com and owned by the publisher:
    - Workflow filename: `npm-stage.yml`
    - Environment: leave blank unless you configure a matching GitHub Environment.
    - Allow stage publish. Prefer **stage only**, without direct publish.
-3. **Completed November 2, 2026:** npm trusted publisher was saved and GitHub Actions staged `0.2.2-beta.1` using OIDC and signed provenance. Owner must confirm the Settings UI now says **Validated**. Do not rerun the stage job at the same immutable/staged version.
+3. **Completed November 2, 2026:** npm trusted publisher saved, status **Valid** confirmed in npm Settings; GitHub Actions staged beta.1 with OIDC/signed provenance; owner then approved its publication and the npm registry verified it. Do not rerun the stage job at this immutable version.
 4. After trusted publishing works, consider **Require 2FA and disallow tokens** in npm package settings.
 5. Future runs: GitHub Actions → **Stage npm prerelease (trusted publisher)** → **Run workflow** → type `STAGE`. This stage still requires manual npmjs.com approval with 2FA.
 

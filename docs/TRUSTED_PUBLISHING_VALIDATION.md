@@ -1,6 +1,6 @@
 # GitHub Actions → npm trusted publisher validation
 
-**Stage operation verified November 2, 2026.** Owner added the GitHub Actions trusted publisher for `imad28122017/pak-utility-bill-core` with workflow `npm-stage.yml`, permission **npm stage publish only**. The initial npm settings screenshot displayed a deadline of November 4, 2026, 11:14 AM UTC to validate the connection. A subsequent GitHub Actions run successfully staged beta.1 with GitHub OIDC and signed provenance. **The npm settings UI validation status must still be rechecked by the owner.**
+**Stage operation verified November 2, 2026.** Owner added the GitHub Actions trusted publisher for `imad28122017/pak-utility-bill-core` with workflow `npm-stage.yml`, permission **npm stage publish only**. The initial npm settings screenshot displayed a deadline of November 4, 2026, 11:14 AM UTC to validate the connection. A subsequent GitHub Actions run successfully staged beta.1 with GitHub OIDC and signed provenance. **The npm settings UI subsequently showed status `Valid`, confirmed by the owner.**
 
 ## Scope
 
@@ -16,7 +16,7 @@
 - The `npm stage publish --tag next --access public` step succeeded, stage ID `70939a00-461c-46c4-a924-a58f7eecdd17`.
 - Logs show `pak-utility-bill-core@0.2.2-beta.1`, 11 files, tarball SHA-1 `ebe64013f6834178df7f77ae413be4ba1a8e5de1`.
 - GitHub Actions signed provenance was submitted to [Sigstore transparency log index 3638509104](https://search.sigstore.dev/?logIndex=3638509104).
-- npm public registry queried immediately afterward still had `next` and `latest` both pointing to `0.2.2-beta.0`; prerelease beta.1 returned 404 publicly, consistent with staging but not approval.
+- Immediately after staging, beta.1 was still private and tags remained on beta.0. **After owner approval on November 2, 2026**, npm public registry confirmed `0.2.2-beta.1` live and its SHA-1 matches the staged tarball. Dist-tags are now `next=0.2.2-beta.1`, `latest=0.2.2-beta.0`. npm registry metadata provides a signed SLSA provenance attestation at https://registry.npmjs.org/-/npm/v1/attestations/pak-utility-bill-core@0.2.2-beta.1.
 - GitHub job had non-fatal warnings about Node.js 20-based actions and unsupported `package-manager-cache` in setup-node@v4. Changed stage workflow to verified upstream `actions/checkout@v7` and `actions/setup-node@v7` for **future runs only**; do **not** rerun the existing staged version.
 
 ## Initial validation checklist (completed unless noted)
@@ -24,14 +24,14 @@
 1. **Completed:** PR #10 merged to `main`, and **Tests and package audit** and **Full-history secret scan** passed on commit `b5c2e4c`.
 2. Visit https://github.com/imad28122017/pak-utility-bill-core/actions/workflows/npm-stage.yml
 3. **Completed:** owner manually dispatched the workflow with `STAGE` on `main` before the deadline. Do not rerun the workflow while `0.2.2-beta.1` is already staged.
-4. **GitHub job successful.** On npm package Settings → Trusted Publisher, owner should now check whether status reads **Validated**. GitHub cannot independently read this npm account-specific status.
-5. On npmjs.com **Staged Packages**, inspect `0.2.2-beta.1` including package metadata and contents. Approve **only** after conscious review and personal 2FA authorization. You may leave it staged for now while validating OIDC; staged packages must be managed by their expiry rules.
+4. **Completed:** GitHub job succeeded and the owner confirmed npm package Settings → Trusted Publisher status **Valid**.
+5. **Completed:** the owner approved the staged beta.1 on npmjs.com and provided the successful publication confirmation. Registry queries independently verified beta.1 is public.
 
 ## After validation
 
-- Consider switching package Publishing access to **Require two-factor authentication and disallow tokens** (npm OIDC trusted publisher stays functional).
-- Verify provenance when an OIDC-published release reaches the registry; do not assume provenance exists on the previous manually published beta.
-- Check npm `latest` vs `next` dist-tags: both initially pointed to `0.2.2-beta.0`. Staging and approval with `next` do not automatically create a stable release.
+- **Completed:** the owner saved package Publishing access **Require two-factor authentication and disallow bypass 2FA tokens**, as shown in npm Settings; the OIDC trusted publisher remains valid.
+- **Completed for beta.1:** npm registry lists a signed provenance attestation tied to the GitHub workflow; the prior manually published beta.0 has not been asserted to have GitHub OIDC provenance.
+- **Verified:** `next=0.2.2-beta.1`, `latest=0.2.2-beta.0` after approval. Neither beta is labeled stable in project communications.
 - Update the eligibility ledger with only verified npm/GitHub data; community adoption is not established.
 
 References:
