@@ -1,0 +1,39 @@
+name: Stage npm prerelease (trusted publisher)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type STAGE to submit an npm stage (requires an existing package and trusted publisher)"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  stage:
+    if: github.ref == 'refs/heads/main' && inputs.confirmation == 'STAGE'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
+      - name: Install npm 11 with staged-publish support
+        run: npm install -g npm@^11
+      - name: Check npm CLI and build
+        run: |
+          node --version
+          npm --version
+          npm run release:check
+          npm run pack:check
+      - name: Stage only — npm maintainer must approve with 2FA
+        run: npm stage publish --tag next --access public

@@ -1,6 +1,6 @@
 {
   "name": "pak-utility-bill-core",
-  "version": "0.2.1",
+  "version": "0.2.2-beta.0",
   "description": "Offline utility bill text parser and verified import primitives for Pakistani bills",
   "type": "module",
   "main": "./src/index.mjs",
@@ -19,7 +19,8 @@
     "test:coverage": "node --test --experimental-test-coverage",
     "pack:check": "npm pack --dry-run --json",
     "verify:package": "node scripts/verify-package.mjs",
-    "audit:secrets": "node scripts/audit-publication.mjs"
+    "audit:secrets": "node scripts/audit-publication.mjs",
+    "release:check": "npm test && npm run test:coverage && npm run example && npm run verify:package && npm run audit:secrets"
   },
   "keywords": [
     "utility-bills",
@@ -47,5 +48,8 @@
     "url": "https://github.com/imad28122017/pak-utility-bill-core/issues"
   },
   "homepage": "https://github.com/imad28122017/pak-utility-bill-core#readme",
-  "private": true
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
+  }
 }
