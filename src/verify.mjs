@@ -24,7 +24,9 @@ export function verifyImport(existing, parsed) {
   if (!existing || typeof existing !== 'object' || !parsed || typeof parsed !== 'object') {
     return { ok: false, issues: ['Existing account and parsed document are required'] };
   }
-  const issues = [...(Array.isArray(parsed.issues) ? parsed.issues.filter(x => typeof x === 'string') : [])];
+  // Parsed diagnostics are untrusted: never echo caller-supplied text (which may contain PII).
+  const issues = Array.isArray(parsed.issues) && parsed.issues.length > 0
+    ? ['Parsed document has missing, conflicting or unverified fields'] : [];
   const expectedProvider = String(existing.provider ?? '').toLowerCase();
   const actualProvider = String(parsed.provider ?? '').toLowerCase();
   if (!KNOWN_PROVIDERS.has(expectedProvider) || expectedProvider !== actualProvider)

@@ -8,7 +8,8 @@
 - [ ] Review **all tracked files AND history** in the *new* repo using Gitleaks or comparable scanning. Don't initialize the new public repo from a clone/fork of the old private repos.
 - [ ] Put `node_modules`, `.env*`, output artifacts, and local test documents in `.gitignore`; allowlist only `/server/.env.example` if intentionally needed (not in this package).
 - [ ] Set up CodeQL/dependency/security scanning, GitHub secret push protection and private vulnerability reporting.
-- [ ] Confirm all tests pass on Node 20+ and package consumer imports work on supported engines.
+- [x] GitHub Actions test/example/pack CI passed on Node 20 and 22 for v0.2.1 initial staging (2026-11-02); verify again for any updated commit.
+- [ ] Independently verify package-consumer imports and the final public release artifact on supported engines.
 - [ ] Verify the package name is available before npm publication and explicitly review the npm tarball with `npm pack --dry-run`.
 - [ ] Manually approve the final `git diff --cached`, branch, repository visibility and npm publish command.
 - [ ] If any genuine credentials were **ever** committed, revoke/rotate them first; do not rely on deleting or rewriting history to make credentials safe.

@@ -156,3 +156,29 @@ test('same-cycle amount corrections require manual review rather than replacing 
   assert.strictEqual(result.bill,existing);
   assert.ok(result.issues.some(s=>s.includes('Amount changed')));
 });
+
+
+test('untrusted parser diagnostics never echo account details or secret strings', () => {
+  const raw = parseBillText(samples.iesco.text);
+  const injected = {...raw, issues: [
+    'Unrecognized account 99998888777766',
+    'Sensitive diagnostic: api-key-EXAMPLE-PRIVATE',
+  ]};
+  const existing = {provider: 'iesco', reference: samples.iesco.reference, billingPeriod:'2026-09'};
+  const verified = verifyImport(existing, injected);
+  assert.equal(verified.ok, false);
+  assert.deepEqual(verified.issues, ['Parsed document has missing, conflicting or unverified fields']);
+  const merged = mergeVerifiedBill(existing, injected, '2026-11-02');
+  assert.equal(merged.status,'needs_review');
+  assert.strictEqual(merged.bill, existing);
+  assert.ok(!JSON.stringify(merged.issues).includes('99998888777766'));
+  assert.ok(!JSON.stringify(merged.issues).includes('api-key-EXAMPLE-PRIVATE'));
+});
+
+test('diagnostics that are not a string array still cannot provide free-form messages', () => {
+  const parsed = {...parseBillText(samples.iesco.text),issues:['client name: Test Customer', {}, 9]};
+  const existing = {provider:'iesco',reference:samples.iesco.reference};
+  const result=verifyImport(existing,parsed);
+  assert.equal(result.ok,false);
+  assert.ok(result.issues.every(s=>!s.includes('Test Customer')));
+});

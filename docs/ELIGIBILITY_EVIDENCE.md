@@ -1,6 +1,6 @@
 # Claude for Open Source — evidence ledger (owner-maintained)
 
-**As of 2026-11-02:** technical release candidate only. Private staging repo created; published public repo: NO. npm release: NO. Verified downloads: 0. Verified dependents: 0. Verified external merged-PR contributors: 0. **No eligibility is established from this starter package.**
+**As of 2026-11-02:** technical release candidate only. Private staging repo with working CI created; published public repo: NO. npm release: NO. Verified downloads: 0. Verified dependents: 0. Verified external merged-PR contributors: 0. **No eligibility is established from this starter package.**
 
 Anthropic's official terms: https://www.anthropic.com/claude-for-oss-terms
 

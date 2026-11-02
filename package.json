@@ -44,5 +44,6 @@
   "bugs": {
     "url": "https://github.com/imad28122017/pak-utility-bill-core/issues"
   },
-  "homepage": "https://github.com/imad28122017/pak-utility-bill-core#readme"
+  "homepage": "https://github.com/imad28122017/pak-utility-bill-core#readme",
+  "private": true
 }
