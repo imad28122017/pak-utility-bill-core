@@ -1,4 +1,4 @@
-# Pakistan Utility Bill Core (npm prerelease 0.2.2-beta.0)
+# Pakistan Utility Bill Core (early-access beta)
 
 **Zero-dependency offline JavaScript/TypeScript library** for text-based Pakistani utility-bill parsing, identity verification, and safe billing-cycle updates.
 
@@ -33,6 +33,8 @@ npm run pack:check
 ```bash
 npm install pak-utility-bill-core@next
 ```
+
+Release note: source version `0.2.2-beta.1` is prepared to validate GitHub Actions trusted publishing; it is not publicly released until staged content is approved on npmjs.com. The previous `0.2.2-beta.0` release remains installable.
 
 This is a beta API; check the [npm package](https://www.npmjs.com/package/pak-utility-bill-core) for the version. As of the first publication on 2026-11-02, **both `next` and `latest` resolve to the beta** according to npm's registry; specifying `@next` or an exact version is recommended until a stable release exists. See [npm publishing and trust setup](docs/NPM_FIRST_PUBLISH.md).
 

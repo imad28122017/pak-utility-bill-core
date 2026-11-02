@@ -1,6 +1,6 @@
 {
   "name": "pak-utility-bill-core",
-  "version": "0.2.2-beta.0",
+  "version": "0.2.2-beta.1",
   "description": "Offline utility bill text parser and verified import primitives for Pakistani bills",
   "type": "module",
   "main": "./src/index.mjs",
